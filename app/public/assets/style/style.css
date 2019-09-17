@@ -1,0 +1,37 @@
+label {
+    width: 100%
+}
+
+input[type=range] {
+    display: block;
+    width: 97%;
+}
+.spacer {
+    height: 95vh;
+}
+.landing {
+    background-image: url("../images/cover.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+.btn-primary:hover {
+    color: #000;
+    background-color: #dc9d15;
+    border-color: #e4a929;
+}
+.btn-primary {
+    color: #fff;
+    background-color: #fd2529;
+    border-color: #a94442;
+}
+.jumbotron {
+    background-color: #c3644340;
+}
+.left {
+    text-align: right;
+    padding-right: 0px;
+}
+
+.middle {
+    text-align: center;
+}

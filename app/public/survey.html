@@ -39,7 +39,7 @@
                 <div class="custom-file">
                     <input type="file" class="custom-file-input" id="photo" required>
                     <label class="custom-file-label" for="photo">Choose file</label>
-                    <img id="img" src="" alt="" style="max-height:200px; max-width:200px">
+                    <img id="img" src="" alt="">
                 </div>
             </div>
             <hr>
@@ -179,7 +179,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal">×</button>
-                    <h2 class="modal-title"><strong>You seem to match with</strong></h2>
+                    <h2 class="modal-title" id="modal-title"><strong></strong></h2>
                 </div>
                 <div class="modal-body">
                     <h2 id="match-name"></h2>
@@ -254,7 +254,7 @@
 
             if (valid()) {
                 // Create an object for the user data
-                var userData = {
+                let userData = {
                     name: $("#name").val().trim(),
                     photo: userPic,
                     scores: [
@@ -270,11 +270,14 @@
                         $("#q10").val()
                     ]
                 };
-                console.log(userData)
+
                 // Post user data to API and get best match back
                 $.post("/api/friends", userData, function (data) {
-
+                    let modalArr = ["You seem to have a lot in common with", "You match with", "You should be friends with", "Here's your match", "Wow, look who we found for you!", "What do you think?", "Your new BFF is"];
+                    let index = Math.floor(Math.random() * modalArr.length + 1);
+                    let title = modalArr[index];
                     // Pop up modal with best match
+                    $("#modal-title").text(title);
                     $("#match-name").text(data.name);
                     $("#match-img").attr("src", data.photo);
 

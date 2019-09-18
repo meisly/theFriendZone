@@ -28,20 +28,35 @@
         <hr>
         <form>
             <h3><strong>About You</strong></h3>
-            <div class="qparent">
-                <h4>Name (Required)</h4>
-                <input type="text" id="name" class="form-control" required>
-            </div>
-
-
-            <div class="qparent">
-                <h4>Upload an Image of Yourself (Required)</h4>
-                <div class="custom-file">
-                    <input type="file" class="custom-file-input" id="photo" required>
-                    <label class="custom-file-label" for="photo">Choose file</label>
-                    <img id="img" src="" alt="">
+            <div class="row">
+                <div class="col-sm-9">
+                    <div class="qparent right">
+                        <h4>Name (Required)</h4>
+                        <input type="text" id="name" class="form-control" required>
+                    </div>
+                    <div class="qparent right">
+                        <h4>Summary</h4>
+                        <div class=" form-group">
+                            <label for="summary">Write a short introduction for your new friends</label>
+                            <textarea class="form-control" id="summary" rows="6"></textarea>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-3">
+                    <h4>Upload an Image of Yourself</h4>
+                    <img id="img" src="./assets/images/head.png" alt="">
+                    <div class="qparent left">
+                        <div class=" custom-file">
+                            <input type="file" class="custom-file-input" id="photo" required>
+                            <label class="custom-file-label" for="photo"></label>
+                        </div>
+                    </div>
                 </div>
             </div>
+
+
+
+
             <hr>
 
             <div class="qparent">
@@ -167,7 +182,8 @@
         <footer class="footer">
             <div class="container">
                 <p><a href="/api/friends">API Friends List</a> | <a
-                        href="https://github.com/meisly/theFriendZone">GitHub Repo</a></p>
+                        href="https://github.com/meisly/theFriendZone">GitHub
+                        Repo</a></p>
             </div>
         </footer>
 
@@ -182,8 +198,13 @@
                     <h2 class="modal-title" id="modal-title"><strong></strong></h2>
                 </div>
                 <div class="modal-body">
-                    <h2 id="match-name"></h2>
-                    <img id="match-img" src="" alt="">
+                    <div class="container-fluid">
+                        <h2 class="middle col-12" id="match-name"></h2>
+                        <div class="row">
+                            <img id="match-img" class="col-sm-6" src="" alt="">
+                            <p class="col-sm-6 sum" id="match-sum"></p>
+                        </div>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -225,7 +246,7 @@
             e.preventDefault();
             $(this).removeClass("incomplete");
         });
-        $("#photo").on("change", function (){
+        $("#photo").on("change", function () {
             $(this).removeClass("incomplete");
         });
 
@@ -257,6 +278,7 @@
                 let userData = {
                     name: $("#name").val().trim(),
                     photo: userPic,
+                    summary: $("#summary").val().trim(),
                     scores: [
                         $("#q1").val(),
                         $("#q2").val(),
@@ -279,6 +301,7 @@
                     // Pop up modal with best match
                     $("#modal-title").text(title);
                     $("#match-name").text(data.name);
+                    $("#match-sum").text(data.summary);
                     $("#match-img").attr("src", data.photo);
 
                     $("#results-modal").modal("toggle");

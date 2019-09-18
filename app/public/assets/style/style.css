@@ -132,5 +132,10 @@ input[type=range] {
 
 img {
     max-height:250px; 
-    max-width:250px
+    max-width:250px;
+    margin: 10px;
+    border: solid black;
+}
+.sum {
+    font: 2rem;
 }

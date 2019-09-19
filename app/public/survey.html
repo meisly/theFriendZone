@@ -236,13 +236,13 @@
         document.getElementById("photo").addEventListener("change", readFile);
 
         //Validation
-        $(".custom-range").on("click touchstart", function (e) {
+        $(".custom-range").on("change", function (e) {
             e.preventDefault();
             $(this).removeClass("incomplete");
             $(this).parent().addClass("completed");
             $(this).addClass("completed");
         });
-        $(".form-control").on("click touchstart", function (e) {
+        $(".form-control").on("click", function (e) {
             e.preventDefault();
             $(this).removeClass("incomplete");
         });

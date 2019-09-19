@@ -18,7 +18,7 @@ The results of this survey are then used to find another user with whom they wil
 
 # Deployed
 
-The Friend Zone is deployed [here](https://pure-reaches-64620.herokuapp.com/).
+The Friend Zone is deployed on heroku and can be found [here](https://pure-reaches-64620.herokuapp.com/).
 
 # author
 Tierra Farris
